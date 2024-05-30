@@ -1,0 +1,118 @@
+
+body > div:first-of-type {
+  text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+section:last-of-type > div {
+  margin: 2vh 2vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+section:last-of-type > div > div {
+  display: flex;
+  flex-flow: column nowrap;
+  height: auto;
+  position: relative;
+}
+
+img {
+  height: 30vh;
+  object-fit: contain;
+  z-index: 1;
+  border-radius: 10px;
+}
+img:hover {
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  transition: ease 0.5s;
+}
+
+img:active {
+  transform: scale(1.7);
+  z-index: 2;
+  transition: ease 0.5s;
+}
+
+.avgNote {
+  position: absolute;
+  top: 5.5vh;
+  right: 0.2vw;
+  z-index: 1;
+  background: radial-gradient(rgba(151, 65, 252, 0.5), rgba(151, 65, 252, 0));
+}
+
+.checked {
+  color: rgb(174, 0, 255);
+}
+
+/* Carte concours */
+section:first-of-type > div {
+  margin: 2vh 2vw;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+
+.card {
+  min-width: 12vw;
+  width: fit-content;
+  min-height: 12vh;
+  height: fit-content;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+}
+
+.card__content {
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 4vh;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #3d3a4e;
+  background-size: 400%;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
+  );
+  transition: all 0.475s;
+}
