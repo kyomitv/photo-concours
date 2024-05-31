@@ -23,7 +23,7 @@
         require('../vues/erreur.php');
         ?>
 
-        <!-- A compléter ici -->
+       
         <div>
             <h1>Site de concours photos</h1>
             <p>Ici, vous pouvez vous joindre à des concours de passionnés pour mettre en valeur votre talent de photographe. Ou alors, tout simplement profiter des oeuvres des gens.</p>
@@ -31,6 +31,8 @@
 
         <hr>
 
+
+            <!-- Concours -->
         <section>
             <h3>Derniers concours</h3>
             <div>
@@ -78,7 +80,7 @@
         
         <hr>
 
-        <section>
+        <section class="photos-grid">
             <h3>Dernières photos publiées</h3>
             
             <div>

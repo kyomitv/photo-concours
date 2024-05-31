@@ -5,15 +5,15 @@ body > div:first-of-type {
   margin-bottom: 2vh;
 }
 
-section:last-of-type > div {
+.photos-grid > div {
   margin: 2vh 2vw;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  gap: 15px;
+  justify-content: center;
+  gap: 15px 30px;
 }
 
-section:last-of-type > div > div {
+.photos-grid > div > div {
   display: flex;
   flex-flow: column nowrap;
   height: auto;

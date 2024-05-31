@@ -28,15 +28,17 @@
         <section>
             <h3><?=$concours["titre_concours"]?> (<?=$concours["theme_concours"]?>)</h3>
             <p><?=$concours["desc_concours"]?></p>
-
+        
             <a href="./publication.php?concours=<?=$concours["id_concours"]?>">
                 <button class="button" <?php if(strtotime($concours["dateFin_concours"]) - strtotime(date("Y-m-d H:i:s"))<0){echo 'style="display:none"';}?>>
                     <span class="button-content">Participer</span>
                 </button>
             </a>
+        </section>
 
             <hr>
 
+        <section>
                 <div class="container">
                     <?php foreach ($classement as $id=>$photo){?>
                         <input type="radio" name="slider" id="item-<?=$id+1?>" <?php if($id+1 == 1){echo "checked";}?>>
@@ -56,7 +58,7 @@
                         <div class="info-area" id="test">
                             <?php foreach ($classement as $id=>$photo){?>                        
                                 <label class="song-info" id="song-info-<?=$id+1?>">
-                                    <div class="title"><?= $photo["titre_photo"]?> (<?= $photo["auteur_photo"]?>)</div>
+                                    <div class="title"><?=$id+1?>. <?= $photo["titre_photo"]?> (<?= $photo["auteur_photo"]?>)</div>
                                     <div class="sub-line">
                                         <div class="subtitle"><?= $photo["description_photo"]?></div>
                                         <div class="time"><span class="fa-solid fa-star checked"></span> <?=obtenirNotePhoto($photo["id_photo"])?></div>
@@ -89,31 +91,34 @@
                         ?></i></p>
                     </div>
                 </div>
+        </section>
 
-            <div>
+            <!-- Toutes les photos -->
+        <section class="photos-container">
             <?php
-                foreach ($listePhotos as $id=>$photo) {
-                    if(isset($_SESSION["pseudo"])){
-                        $vote=obtenirVote($photo["id_photo"], $_SESSION["pseudo"]);
-                    }
-                ?>
-                    <div id=<?= $photo["id_photo"]?>>
-                        <h4><?= $photo["titre_photo"]?> (<?= $photo["auteur_photo"]?>)</h4>
-                        <p><?= $photo["description_photo"]?></p>
-                        <!--<form action="./gestionVotes.php" method="POST">
-                            <select name="vote" id="vote">
-                                <option value="1_<?= $photo["id_photo"]?>" <?php if($vote==1){echo "selected";}?>>1</option>
-                                <option value="2_<?= $photo["id_photo"]?>" <?php if($vote==2){echo "selected";}?>>2</option>
-                                <option value="3_<?= $photo["id_photo"]?>" <?php if($vote==3){echo "selected";}?>>3</option>
-                                <option value="4_<?= $photo["id_photo"]?>" <?php if($vote==4){echo "selected";}?>>4</option>
-                                <option value="5_<?= $photo["id_photo"]?>" <?php if($vote==5){echo "selected";}?>>5</option>
-                            </select>
-                            <button type="submit">Voter</button>
-                        </form>-->
-                        <img src="<?= '../../'.$photo["chemin_photo"]?>" alt="<?= $photo["titre_photo"]?>">
-                        <?php
-                            if(isset($_SESSION["pseudo"]) && $_SESSION["pseudo"]!=$photo["auteur_photo"]){
-                        ?>
+            foreach ($listePhotos as $id=>$photo) {
+                if(isset($_SESSION["pseudo"])){
+                    $vote=obtenirVote($photo["id_photo"], $_SESSION["pseudo"]);
+                }
+            ?>
+
+                <div id=<?= $photo["id_photo"]?>>
+                    <h4><?= $photo["titre_photo"]?> (<?= $photo["auteur_photo"]?>)</h4>
+                    <p><?= $photo["description_photo"]?></p>
+                    <!--<form action="./gestionVotes.php" method="POST">
+                        <select name="vote" id="vote">
+                            <option value="1_<?= $photo["id_photo"]?>" <?php if($vote==1){echo "selected";}?>>1</option>
+                            <option value="2_<?= $photo["id_photo"]?>" <?php if($vote==2){echo "selected";}?>>2</option>
+                            <option value="3_<?= $photo["id_photo"]?>" <?php if($vote==3){echo "selected";}?>>3</option>
+                            <option value="4_<?= $photo["id_photo"]?>" <?php if($vote==4){echo "selected";}?>>4</option>
+                            <option value="5_<?= $photo["id_photo"]?>" <?php if($vote==5){echo "selected";}?>>5</option>
+                        </select>
+                        <button type="submit">Voter</button>
+                    </form>-->
+                    <img src="<?= '../../'.$photo["chemin_photo"]?>" alt="<?= $photo["titre_photo"]?>">
+                    <?php
+                        if(isset($_SESSION["pseudo"]) && $_SESSION["pseudo"]!=$photo["auteur_photo"]){
+                    ?>
                         <div class="rating">
                             <span class="fa-solid fa-star <?php if($vote>=1){echo "checked";}?>"></span>
                             <span class="fa-solid fa-star <?php if($vote>=2){echo "checked";}?>"></span>
@@ -121,14 +126,14 @@
                             <span class="fa-solid fa-star <?php if($vote>=4){echo "checked";}?>"></span>
                             <span class="fa-solid fa-star <?php if($vote>=5){echo "checked";}?>"></span>
                         </div>
-                        <?php
-                            }
-                        ?>
-                        <p>(<?=obtenirNotePhoto($photo["id_photo"])?>)</p>
                     <?php
                         }
                     ?>
-            </div>
+                    <p>(<?=obtenirNotePhoto($photo["id_photo"])?>)</p>
+                </div>
+            <?php
+                }
+            ?>
         </section>
 
         <?php

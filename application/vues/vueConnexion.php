@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../../public/css/connexion.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        <script src="../../public/js/accueil.js" defer></script>   
+        <script src="../../public/js/accueil.js" defer></script>
         <title>Site de concours photo</title>
     </head>
 
@@ -27,7 +27,7 @@
 
         <div class="form-container">
             <p class="title">Connexion</p>
-            <form class="form" action="../controleurs/connexion.php" method="post">
+            <form class="form" id="myForm" action="../controleurs/connexion.php" method="post">
                 <div class="input-group">
                     <label for="username">Pseudo</label>
                     <input type="text" name="pseudo" id="username" placeholder="Votre pseudo...">

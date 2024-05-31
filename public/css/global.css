@@ -4,13 +4,13 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
 }
-
 
 body {
   background-color: #212121;
@@ -36,7 +36,7 @@ header a {
 
 header a:hover {
   color: #923fff;
-  transition: ease .5s;
+  transition: ease 0.5s;
 }
 
 header .user-header {
@@ -51,10 +51,39 @@ header div {
   align-items: center;
 }
 
-body > section, body > hr{
+body > section,
+body > hr {
   margin: 3vh 5vw;
 }
 
-button:disabled:hover{
+button:disabled:hover {
   background-color: grey;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+  border: 2px solid red;
+  animation-timing-function: ease-in-out;
+}
+
+input:invalid {
+  border: 2px solid red;
 }

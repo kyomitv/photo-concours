@@ -11,11 +11,6 @@ section:first-of-type > div:first-of-type ~ div > div {
   height: auto;
 }
 
-img {
-  height: 30vh;
-  object-fit: contain;
-}
-
 img:active {
   transform: scale(1.7);
   transition: ease 0.5s;
@@ -92,6 +87,22 @@ section:first-of-type > div:first-of-type ~ div {
   );
   transition: all 0.475s;
 }
+
+.photos-container {
+  margin: 2vh 2vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px 30px;
+}
+
+.photos-container > div {
+  display: flex;
+  flex-flow: column nowrap;
+  height: auto;
+  position: relative;
+}
+
 
 /*gdhinazd,*/
 
@@ -229,7 +240,7 @@ img {
   margin-top: 10px;
 }
 
-.progress-bar~p{
+.progress-bar ~ p {
   margin-top: 2px;
   text-align: right;
   color: #c6c5c6;

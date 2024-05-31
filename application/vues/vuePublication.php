@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
         <script src="../../public/js/publication.js" defer></script>
+        <script src="../../public/js/form.js" defer></script>
         <title>Site de concours photo</title>
     </head>
 
@@ -27,7 +28,7 @@
 
         <div class="form-container">
             <p class="title">Publication</p>
-            <form action="publication.php" method="post" enctype="multipart/form-data">
+            <form action="publication.php" id="myForm" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <label for="titre">Titre de la photo</label>
                     <input type="text" name="titre" id="titre" required placeholder="Titre...">
